@@ -1,0 +1,147 @@
+{
+    "devs": [
+        {
+            "name": "Darius",
+            "tech": [
+                ".NET",
+                "Python",
+                "SQL"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    54.39635,
+                    24.04142
+                ]
+            }
+        },
+        {
+            "name": "Dominyka",
+            "tech": [
+                "React",
+                "Vue",
+                "Angular"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    54.68916,
+                    25.2798
+                ]
+            }
+        },
+        {
+            "name": "Ingrida",
+            "tech": [
+                "Java",
+                "Python"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    54.63783,
+                    24.93433
+                ]
+            }
+        },
+        {
+            "name": "Povilas",
+            "tech": [
+                "Power BI",
+                "Python",
+                "Tableau"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    56.06251,
+                    24.39965
+                ]
+            }
+        },
+        {
+            "name": "Danielius",
+            "tech": [
+                "Ruby",
+                "C#",
+                "C++"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    55.73186,
+                    24.35983
+                ]
+            }
+        },
+        {
+            "name": "Saulius",
+            "tech": [
+                "PHP",
+                "JS",
+                "SQL"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    55.7068,
+                    21.13912
+                ]
+            }
+        },
+        {
+            "name": "Algirdas",
+            "tech": [
+                "HTML",
+                "CSS",
+                "JS"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    54.90272,
+                    23.90961
+                ]
+            }
+        },
+        {
+            "name": "Rasa",
+            "tech": [
+                "WordPress",
+                "HTML",
+                "CSS"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    54.55991,
+                    23.35412
+                ]
+            }
+        },
+        {
+            "name": "Paulina",
+            "tech": [
+                "JS",
+                "React",
+                "Mongo DB"
+            ],
+            "free": true,
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    55.3086,
+                    20.99651
+                ]
+            }
+        }
+    ]
+}

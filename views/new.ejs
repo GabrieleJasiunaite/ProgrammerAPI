@@ -1,0 +1,69 @@
+<%- include('partials/header'); -%>
+
+<form class="new">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <label for="tech">Your technologies:</label>
+  <input type="text" id="tech" name="tech" required>
+  <label>Are you open for work?</label>
+  <label>
+    <input type="radio" name="free" value="false" checked="checked"> No</label>
+  <label>
+    <input type="radio" name="free" value="true"> Yes</label>
+  <label for="location">Location:</label>
+  <select name="location" id="location" required>
+    <% data.forEach(result=> { %>
+    <option value="<%= result.coordinates.lat %>,<%= result.coordinates.lon %>">
+      <%= result.name %>
+    </option>
+    <% }) %>
+  </select>
+  <div class="buttons">
+    <button>Submit</button>
+    <a href="/">Go back</a>
+  </div>
+</form>
+
+<script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const name = form.name.value;
+    const tech = form.tech.value.split(',');
+    const free = form.free.value;
+    const location = {
+      type: 'Point',
+      coordinates: form.location.value.split(',').map(elem => parseFloat(elem))
+    };
+
+    try {
+      const res = await fetch('/api/programmers', {
+        method: 'POST',
+        body: JSON.stringify({
+          name,
+          tech,
+          free,
+          location
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await res.json();
+      console.log(data);
+      console.log(typeof free)
+
+      if (data.dev) {
+        window.location.assign('/');
+      };
+
+    } catch (err) {
+      console.log(err);
+    };
+  })
+</script>
+
+<%- include('partials/footer'); -%>

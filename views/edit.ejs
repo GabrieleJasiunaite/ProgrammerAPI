@@ -1,0 +1,70 @@
+<%- include('partials/header'); -%>
+
+<h1 class="title">
+  Edit <%= dev.name %>
+</h1>
+
+<form class="new" id="<%= dev._id %>">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value=<%=dev.name %> required>
+  <label for="tech">Your technologies:</label>
+  <input type="text" id="tech" name="tech" value="<%=dev.tech.join(',') %>" required>
+  <label>Are you open for work?</label>
+  <label>
+    <input type="radio" name="free" value="false" checked="checked"> No</label>
+  <label>
+    <input type="radio" name="free" value="true"> Yes</label>
+  <label for="location">Location:</label>
+  <select name="location" id="location" required>
+    <% data.forEach(result=> { %>
+    <option value="<%= result.coordinates.lat %>,<%= result.coordinates.lon %>">
+      <%= result.name %>
+    </option>
+    <% }) %>
+  </select>
+  <div class="buttons">
+    <button>Submit</button>
+    <a href="/">Go back</a>
+  </div>
+</form>
+
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const id = form.id;
+    console.log(id);
+    const name = form.name.value;
+    const tech = form.tech.value.split(',');
+    const free = form.free.value;
+    const location = {
+      type: 'Point',
+      coordinates: form.location.value.split(',').map(elem => parseFloat(elem))
+    };
+
+    try {
+      const res = await fetch(`/api/programmers/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          name,
+          tech,
+          free,
+          location
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (res) {
+        window.location.assign('/');
+      };
+
+    } catch (err) {
+      console.log(err);
+    };
+  })
+</script>
+
+<%- include('partials/footer'); -%>
